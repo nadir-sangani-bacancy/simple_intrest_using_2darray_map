@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Intrest Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <!-- Latest compiled JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script type="text/javascript">
+   		function calculate()
+   		{
+   			let p = [];
+   			// let r = [];
+   			// let m = [];
+   			let rm = []
+   			let out = [[],[],[]];
+
+   			p.push(document.getElementById("Principle1").value)
+   			p.push(document.getElementById("Principle2").value)
+   			p.push(document.getElementById("Principle3").value)
+
+   // 			r.push(document.getElementById("rate1").value)
+   // 			r.push(document.getElementById("rate2").value)
+   // 			r.push(document.getElementById("rate3").value)
+
+   // 			m.push(document.getElementById("month1").value)
+			// m.push(document.getElementById("month2").value)
+			// m.push(document.getElementById("month3").value)
+   			
+   			rm.push({r: document.getElementById("rate1").value, m:document.getElementById("month1").value})
+   			rm.push({r: document.getElementById("rate2").value, m:document.getElementById("month2").value})
+   			rm.push({r: document.getElementById("rate3").value, m:document.getElementById("month3").value})
+
+			//using for loop
+			/*for(let i = 0 ; i < 3 ; i++)
+			{
+				for(let j=0 ; j < 3 ;j++)
+				{
+					out[i][j] = (p[i] * rm[j].r * rm[j].m)/100;
+
+				}
+
+			}*/
+   			p.map((pa, i ) => { 
+   					rm.map((rma, j) => {
+
+   					out[i][j] = (pa * rma.r * rma.m)/100;		
+
+   					})
+   			})
+   			console.log(out);
+
+   			//using for loop
+   			// for(let x=0 ; x < 3 ; x++)
+			// {
+			// 	for(let z=0 ; z < 3 ; z++)
+			// 	{
+			// 		 i = (x*3)+z;
+			// 		 document.getElementById(i).value = out[x][z] ;
+			// 	}
+				
+			// }
+			
+
+			out.map((ou, i)=>{
+				ou.map((nou, j)=>{
+					document.getElementById((i*3)+j).value = nou ;
+				})
+			})
+
+			
+
+   		}
+
+
+
+
+   </script>
+</head>
+<body>
+<form>
+	<div class="container">
+		
+         <div class="col-md-2">
+         	<br>
+           	<br>
+           	<br>
+          	<br>
+          	<br>
+          	<br>
+            <input type="text" class="form-control" placeholder="month1" id="month1">
+            <br>
+            <input type="text" class="form-control" placeholder="month2" id="month2">
+            <br>
+            <input type="text" class="form-control" placeholder="month3" id="month3">
+            <br>
+
+         </div>
+         
+         <div class="col-md-2">
+         	<br>
+         	<br>
+            <br>
+            <input type="text" class="form-control" placeholder="Principle1" id="Principle1">
+    		<br>
+            <input type="text" class="form-control" placeholder="out1" id="0">
+            <br>
+            <input type="text" class="form-control" placeholder="out2" id="1">
+            <br>
+            <input type="text" class="form-control" placeholder="out3" id="2">
+            <br>
+         </div>
+         <h5>Principle Amount</h5>
+         <div class="col-md-2">
+         	<br>
+         	
+            <input type="text" class="form-control" placeholder="Principle2" id="Principle2">
+    		<br>
+            <input type="text" class="form-control" placeholder="out4" id="3">
+            <br>
+            <input type="text" class="form-control" placeholder="out5" id="4">
+            <br>
+            <input type="text" class="form-control" placeholder="out6" id="5">
+            <br>
+            <button type="button" onclick="calculate()" class="btn btn-default btn-block">GET ANSWER</button>
+         </div>
+         <div class="col-md-2">
+         	<br>
+         	
+            <input type="text" class="form-control" placeholder="Principle3"  id="Principle3">
+    		<br>
+            <input type="text" class="form-control" placeholder="out7" id="6">
+            <br>
+            <input type="text" class="form-control" placeholder="out8" id="7">
+            <br>
+            <input type="text" class="form-control" placeholder="out9" id="8">
+            <br>
+         </div>
+         <div class="col-md-2">
+         	<br>
+           	<br>
+           	<br>
+           	<br>
+            <input type="text" class="form-control" placeholder="rate1" id="rate1">
+            <br>
+            <input type="text" class="form-control" placeholder="rate2" id="rate2">
+            <br>
+            <input type="text" class="form-control" placeholder="rate3" id="rate3">
+            <br>
+         </div>
+        <div class="col-md-2"></div> 	
+      </div>
+</form>
+</body>
+</html>
